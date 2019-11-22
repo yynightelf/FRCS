@@ -1,0 +1,70 @@
+---
+swagger: "2.0"
+info:
+  version: "1.0"
+  title: "https://vsdc.staging.vms.frcs.org.fj"
+basePath: "/api/Sign"
+paths:
+  /api/Sign:
+    post:
+      operationId: "Sign"
+      consumes:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: "Request body"
+        required: true
+        schema:
+            $ref: '#/definitions/Model0'
+        x-examples:
+            application/json: "{\r\n    \"DateAndTimeOfIssue\": \"2017-06-27T08:56:23.286Z\",\r\n    \"Cashier\": \"YYCHIN\",\r\n    \"IT\": \"Normal\",\r\n    \"TT\": \"Sale\",\r\n    \"PaymentType\": \"Cash\",\r\n    \"InvoiceNumber\": \"POS2019/999\",\r\n    \"Options\": {\r\n        \"OmitQRCodeGen\": \"0\",\r\n        \"OmitTextualRepresentation\": \"0\"                                                                                                                                                                                                                                                                                                                                                                                  \r\n    },\r\n    \"Items\": [\r\n        {\r\n            \"Name\": \"Sport-100 Helmet, Blue\",\r\n            \"Quantity\": 2,\r\n            \"UnitPrice\": 10,\r\n            \"Labels\": [ \"A\" ],\r\n            \"TotalAmount\": 21.80\r\n        },\r\n        {\r\n            \"Name\": \"Sport-200 Helmet, Yellow\",\r\n            \"Quantity\": 1,\r\n            \"UnitPrice\": 1.00,\r\n            \"Labels\": [ \"E\" ],\r\n            \"TotalAmount\": 1.00\r\n        },\r\n        {\r\n            \"Name\": \"Sport-300 Helmet, Yellow\",\r\n            \"Quantity\": 1,\r\n            \"UnitPrice\": 1.00,\r\n            \"Labels\": [ \"F\" ],\r\n            \"TotalAmount\": 1.00\r\n        },\r\n        {\r\n            \"Name\": \"Sport-400 Helmet, Yellow\",\r\n            \"Quantity\": 1,\r\n            \"UnitPrice\": 1.00,\r\n            \"Labels\": [ \"P\" ],\r\n            \"TotalAmount\": 1.00\r\n        }\r\n    ],\r\n    \"Hash\": \"YY_002\"\r\n}"
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+definitions:
+  Options:
+    properties:
+      OmitQRCodeGen:
+        type: string
+      OmitTextualRepresentation:
+        type: string
+  Items:
+    properties:
+      Name:
+        type: string
+      Quantity:
+        type: integer
+        format: int32
+      UnitPrice:
+        type: integer
+        format: int32
+      Labels:
+        type: array
+        items:
+          type: string
+      TotalAmount:
+        type: number
+        format: double
+  Model0:
+    properties:
+      DateAndTimeOfIssue:
+        type: string
+      Cashier:
+        type: string
+      IT:
+        type: string
+      TT:
+        type: string
+      PaymentType:
+        type: string
+      InvoiceNumber:
+        type: string
+      Options:
+        $ref: '#/definitions/Options'
+      Items:
+        type: array
+        items:
+          $ref: '#/definitions/Items'
+      Hash:
+        type: string
